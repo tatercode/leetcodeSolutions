@@ -2,36 +2,32 @@ from typing import List
 
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int)       -> List[List[int]]:
-        
         res = []
+        candidates.sort()
 
-        combination = []
-
-        def dfs(i, tot):
+        def dfs(i, tot, combination):
             if tot == target:
-                combination.sort()
-                if combination in res:
-                    return
                 res.append(combination.copy())
                 return
+
             if i == len(candidates) or tot >= target:
                 return 
             
-            tot += candidates[i]
             combination.append(candidates[i])
-            dfs(i + 1, tot)
-            
-            tot -= candidates[i]
+            dfs(i + 1, tot+candidates[i], combination)
             combination.pop()
-            dfs(i + 1, tot)
-            
 
-        dfs(0, 0)
+            while i + 1 < len(candidates) and candidates[i] == candidates[i+1]:
+                i+=1
+
+            dfs(i+1, tot, combination)
+
+        dfs(0, 0, [])
 
         return res
 
 if __name__ == "__main__":
     sol = Solution()
-    test = [10,1,2,7,6,1,5]
+    test = [2,5,2,1,2]
     res = sol.combinationSum2(test, 8) 
     print(res)
