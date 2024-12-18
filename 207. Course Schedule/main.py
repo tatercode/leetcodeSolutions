@@ -11,7 +11,6 @@ class Solution:
             preMap[crs].append(pre)
 
 
-        visitSet = set()
         def dfs(crs):
             # Detected loop
             if crs in visitSet:
