@@ -7,7 +7,8 @@ class SolutionDFS:
         res = 0
 
         def dfs(r, c):
-            if (r < 0 or c < 0 or r >= ROWS or c >= COLS or grid[r][c] == "0"):
+            if (r < 0 or c < 0 or r >= ROWS or 
+                c >= COLS or grid[r][c] == "0"):
                 return
             grid[r][c] = "0"
             for dr, dc in directions:
