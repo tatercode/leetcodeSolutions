@@ -5,11 +5,10 @@ class Solution:
         
         preMap = { i:[] for i in range(numCourses) }
 
-        print(preMap)
-    
         for crs, pre in prerequisites:
             preMap[crs].append(pre)
 
+        visitSet = set()
 
         def dfs(crs):
             # Detected loop
