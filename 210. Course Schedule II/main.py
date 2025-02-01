@@ -43,3 +43,4 @@ if __name__ == "__main__":
     ans2 = sol.findOrder(4, prerequisites)
     print(ans)
     print(ans2)
+
