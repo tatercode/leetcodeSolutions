@@ -3,8 +3,10 @@ from typing import List
 
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
+        # Convert to max heap
         stones = [-i for i in stones]
         heapq.heapify(stones)
+        print(stones)
 
         print(stones)
 
